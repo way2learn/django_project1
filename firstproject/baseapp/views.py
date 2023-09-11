@@ -13,7 +13,9 @@ rooms = [
 ]
 
 def home(request):
-    rooms = Room.objects.all()
+    q = request.GET.get('q') if request.GET.get('q') != None else ''
+    #rooms = Room.objects.all()
+    rooms = Room.objects.filter(topic__name__icontains = q)
     topics = Topic.objects.all()
     return render(request, 'baseapp/home.html', {"rums": rooms, "topics": topics})
 
