@@ -27,12 +27,13 @@
     </div>
 
     <div>
+        <h5>{{room_count}} rooms are available</h5>
         <a href="create-room/">createrooom</a>
         {% for rum in rums %}
         <div>
-            <a href="update-room/{{rum.id}}">Edit</a>
-            <a href="delete-room/{{rum.id}}">Delete</a><br>
-            <span>@{{rum.host.username}}</span>
+            <a href="update-room/{{rum.id}}">Edit</a>s
+            <a href="delete-room/{{rum.id}}">Delete</a>
+            <span>@{{rum.host.username}}</span><br>
             {{rum.id}}..<a href="room/{{rum.id}}">{{rum.name}}</a> <br>
             <small>{{rum.topic.name}}</small>
             <hr>
