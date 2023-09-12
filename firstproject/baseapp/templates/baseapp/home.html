@@ -31,8 +31,11 @@
         <a href="create-room/">createrooom</a>
         {% for rum in rums %}
         <div>
+            {% if request.user == rum.host %}
             <a href="update-room/{{rum.id}}">Edit</a>s
             <a href="delete-room/{{rum.id}}">Delete</a>
+            {% endif %}
+
             <span>@{{rum.host.username}}</span><br>
             {{rum.id}}..<a href="room/{{rum.id}}">{{rum.name}}</a> <br>
             <small>{{rum.topic.name}}</small>
