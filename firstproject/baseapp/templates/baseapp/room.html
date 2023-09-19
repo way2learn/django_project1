@@ -2,6 +2,19 @@
 {% block content %}
 <h1>ROOM TEMPLATE</h1>
 <div>
-    {{rumm.name}}
+   <h1> {{rumm.name}}</h1>
+
+   <p>{{rumm.description}}</p>
+</div>
+<div class="comment-wrapper">
+    <h3>Conversationss</h3>
+    <hr>
+    {% for message in room_messages %}
+          <div>
+              <small>@{{message.user}} {{message.created | timesince}} </small>
+              <p>{{message.body}}</p>
+              <hr>
+          </div>
+    {% endfor %}
 </div>
 {% endblock content %}
